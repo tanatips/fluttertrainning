@@ -9,3 +9,4 @@ String kLifeCycle = "Life Cycle";
 String kStack = "Stack";
 String kFlex = "Flex";
 String kExpanded = "Expanded";
+String kCard = "Card";

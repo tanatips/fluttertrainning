@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/constanct.dart';
+import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -55,7 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuFlexScreen(),
         MenuStackScreen(),
         MenuExpandedScreen(),
-        MenuLifeCycle()
+        MenuLifeCycle(),
+        MenuCardScreen()
         ],
       ),
       ),
@@ -63,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            MyCard(size: size),
+           
             SpaceHeight(size: size),
             Text(
               'You have pushed the button this many times:',
@@ -137,29 +140,6 @@ class SpaceHeight extends StatelessWidget {
   }
 }
 
-class MyCard extends StatelessWidget {
-  const MyCard({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width*0.75,
-      height: size.height*0.2,
-      child: Card(
-        
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Test card"),
-        ),
-      ),
-    );
-  }
-}
 
 class ProfilePicture extends StatelessWidget {
   const ProfilePicture({
@@ -221,6 +201,22 @@ class MenuFlexScreen extends StatelessWidget {
         title: Text(kFlex,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context){return FlexScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+class MenuCardScreen extends StatelessWidget {
+  const MenuCardScreen({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.card_giftcard,color: kPrimaryColor,),
+        title: Text(kCard,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return CardScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
         );
