@@ -3,6 +3,8 @@ import 'package:fluttertraining/constanct.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/elevatedButton/elevatedButton_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/formandinput/form_and_input_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/futurebuilder/futurebuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
@@ -64,7 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuCardScreen(),
         MenuElevatedButton(),
         MenuGridView(),
-        MenuIntrinsic()
+        MenuIntrinsic(),
+        MenuFormInput(),
+        MenuFutureBuilder()
         ],
       ),
       ),
@@ -102,7 +106,7 @@ class MenuLifeCycle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.expand_outlined ,color: kPrimaryColor,),
+      leading: Icon(Icons.circle_rounded ,color: kPrimaryColor,),
       title: Text(kLifeCycle,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
       onTap: (){
         Navigator.push(context,MaterialPageRoute(builder: (context){return LifeScreen();}));
@@ -268,10 +272,41 @@ class MenuIntrinsic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return ListTile(
-        leading: Icon(Icons.grid_3x3,color: kPrimaryColor,),
+        leading: Icon(Icons.rounded_corner,color: kPrimaryColor,),
         title: Text(kIntrinsic,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context){return IntrinsicScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+// MenuFormInput
+class MenuFormInput extends StatelessWidget {
+  const MenuFormInput({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.input,color: kPrimaryColor,),
+        title: Text(kFormAndInput,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return FormAndInputScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuFutureBuilder extends StatelessWidget {
+  const MenuFutureBuilder ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.build,color: kPrimaryColor,),
+        title: Text(kFutureBuilder,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return FutureBuilderScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
         );
