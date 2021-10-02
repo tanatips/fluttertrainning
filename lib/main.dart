@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertraining/constanct.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/elevatedButton/elevatedButton_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 
 import 'screen/layout_and_widget/flex/flex_screen.dart';
@@ -58,7 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuStackScreen(),
         MenuExpandedScreen(),
         MenuLifeCycle(),
-        MenuCardScreen()
+        MenuCardScreen(),
+        MenuElevatedButton(),
+        MenuGridView(),
+        MenuIntrinsic()
         ],
       ),
       ),
@@ -217,6 +223,55 @@ class MenuCardScreen extends StatelessWidget {
         title: Text(kCard,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context){return CardScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+
+class MenuElevatedButton extends StatelessWidget {
+  const MenuElevatedButton({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.smart_button,color: kPrimaryColor,),
+        title: Text(kElevatedButton,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return ElevatedButtonScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+// MenuGridView
+class MenuGridView extends StatelessWidget {
+  const MenuGridView({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.grid_3x3,color: kPrimaryColor,),
+        title: Text(kGridView,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return GridViewScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+class MenuIntrinsic extends StatelessWidget {
+  const MenuIntrinsic({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.grid_3x3,color: kPrimaryColor,),
+        title: Text(kIntrinsic,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return IntrinsicScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
         );

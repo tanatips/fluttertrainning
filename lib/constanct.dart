@@ -10,3 +10,7 @@ String kStack = "Stack";
 String kFlex = "Flex";
 String kExpanded = "Expanded";
 String kCard = "Card";
+String kElevatedButton = "ElevatedButton";
+String kGridView = "GridView";
+String kIntrinsic = "Intrinsic";
+String kFormAndInput = "Form and input";
