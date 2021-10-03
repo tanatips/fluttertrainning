@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/constanct.dart';
+import 'package:fluttertraining/screen/layout_and_widget/animation/animation_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/elevatedButton/elevatedButton_screen.dart';
@@ -7,6 +8,7 @@ import 'package:fluttertraining/screen/layout_and_widget/formandinput/form_and_i
 import 'package:fluttertraining/screen/layout_and_widget/futurebuilder/futurebuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 
 import 'screen/layout_and_widget/flex/flex_screen.dart';
@@ -68,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuGridView(),
         MenuIntrinsic(),
         MenuFormInput(),
-        MenuFutureBuilder()
+        MenuFutureBuilder(),
+        MenuAnimation(),
+        MenuScrollbarable()
         ],
       ),
       ),
@@ -307,6 +311,36 @@ class MenuFutureBuilder extends StatelessWidget {
         title: Text(kFutureBuilder,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context){return FutureBuilderScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuAnimation extends StatelessWidget {
+  const MenuAnimation ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.animation,color: kPrimaryColor,),
+        title: Text(kAnimation,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return AnimationScreen();}));
+        },
+        //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuScrollbarable extends StatelessWidget {
+  const MenuScrollbarable ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.fit_screen_outlined,color: kPrimaryColor,),
+        title: Text(kScrolbarable,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return ScrollbarableScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
         );

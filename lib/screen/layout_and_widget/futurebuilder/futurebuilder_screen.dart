@@ -13,7 +13,7 @@ class _FutureBuilderScreenState extends State<FutureBuilderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(kFormAndInput),centerTitle: true,backgroundColor: kPrimaryColor,),
+      appBar: AppBar(title: Text(kFutureBuilder),centerTitle: true,backgroundColor: kPrimaryColor,),
       body: Body(),
     );
   }

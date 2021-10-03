@@ -22,7 +22,17 @@ class _BodyState extends State<Body> {
             child: TextFormField(
               controller: txtFirstName,
               decoration: InputDecoration(
-                hintText: "ชื่อ"
+                hintText: "ชื่อ",
+                // focusedBorder: OutlineInputBorder(
+                //   borderSide: BorderSide(color: Colors.white,width: 2),
+                //   borderRadius: BorderRadius.circular(25),
+                // ),
+                // enabledBorder: UnderlineInputBorder(
+                //   borderSide: BorderSide(color: Colors.grey,width: 2),
+                //   borderRadius: BorderRadius.circular(25)
+                //   ),
+                // filled: true,
+                // fillColor: Colors.blue[100],
               ),
               validator: (value){
                 if(value!.isEmpty){
@@ -37,7 +47,18 @@ class _BodyState extends State<Body> {
             child: TextFormField(
               controller: txtLastName,
               decoration: InputDecoration(
-                hintText: "นามสกุล"
+                hintText: "นามสกุล",
+                // border: InputBorder.none,
+                // focusedBorder: OutlineInputBorder(
+                //   borderSide: BorderSide(color: Colors.white),
+                //   borderRadius: BorderRadius.circular(25),
+                // ),
+                // enabledBorder: UnderlineInputBorder(
+                //   borderSide: BorderSide(color: Colors.grey,width: 2),
+                //   borderRadius: BorderRadius.circular(25)
+                //   ),
+                // filled: true,
+                // fillColor: Colors.blue[100],
               ),
               validator: (value){
                 if(value!.isEmpty){

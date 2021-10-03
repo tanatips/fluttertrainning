@@ -15,3 +15,5 @@ String kGridView = "GridView";
 String kIntrinsic = "Intrinsic";
 String kFormAndInput = "Form and input";
 String kFutureBuilder = "FutureBuilder";
+String kAnimation = "Animation";
+String kScrolbarable = "Scrolbarable";
