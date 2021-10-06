@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/constanct.dart';
 import 'package:fluttertraining/screen/layout_and_widget/animation/animation_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/appbarandtab/appbar_and_tab_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/buttonnavigationbar/button_navigation_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/elevatedButton/elevatedButton_screen.dart';
@@ -8,7 +10,10 @@ import 'package:fluttertraining/screen/layout_and_widget/formandinput/form_and_i
 import 'package:fluttertraining/screen/layout_and_widget/futurebuilder/futurebuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 
 import 'screen/layout_and_widget/flex/flex_screen.dart';
@@ -29,6 +34,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/navigator': (context) => const NavigatorScreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/scrollbar': (context) => const ScrollbarableScreen(),
+      },
     );
   }
 }
@@ -57,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: kPrimaryColor,
+       
       ),
       drawer: Drawer(child: ListView(
         children: [
@@ -72,7 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuFormInput(),
         MenuFutureBuilder(),
         MenuAnimation(),
-        MenuScrollbarable()
+        MenuScrollbarable(),
+        MenuAppbarAndTab(),
+        MenuSilverAppbar(),
+        MenuButtonNavigationBar(),
+        MenuTabbar(),
+        MenuNavigator()
+       
         ],
       ),
       ),
@@ -343,6 +362,85 @@ class MenuScrollbarable extends StatelessWidget {
            Navigator.push(context,MaterialPageRoute(builder: (context){return ScrollbarableScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+ 
+class MenuAppbarAndTab extends StatelessWidget {
+  const MenuAppbarAndTab ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.menu,color: kPrimaryColor,),
+        title: Text(kAppbarAndTab,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return AppbarAndTabScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuButtonNavigationBar extends StatelessWidget {
+  const MenuButtonNavigationBar ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.menu,color: kPrimaryColor,),
+        title: Text(kButtonNavigationBar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return ButtonNavigationBarScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuTabbar extends StatelessWidget {
+  const MenuTabbar ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.tab,color: kPrimaryColor,),
+        title: Text(kTabbar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return TabbarScreeen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuSilverAppbar extends StatelessWidget {
+  const MenuSilverAppbar ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.title_sharp,color: kPrimaryColor,),
+        title: Text(kSilverAppBar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context){return SilverAppbarScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+class MenuNavigator extends StatelessWidget {
+  const MenuNavigator ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.title_sharp,color: kPrimaryColor,),
+        title: Text(kNavigator,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             settings: RouteSettings(name: "/navigator"),
+             builder: (context){return NavigatorScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
         );
   }
 }
