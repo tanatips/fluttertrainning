@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+String baseApiUrl="http://139.5.147.55:9999";
+
 Color kPrimaryColor = Colors.yellow.shade800;
 Color kSecondColor = Colors.yellow.shade50;
 
@@ -22,3 +24,6 @@ String kButtonNavigationBar = "ButtonNavigationBar";
 String kTabbar = "Tabbar";
 String kSilverAppBar = "SilverAppbar";
 String kNavigator = "Navigator";
+String kJsonRestFulWorkshop = "Json RestFul Feed Wokrshop";
+String kStreamBuilder = "StreamBuilder";
+String kLogout = "Log out";

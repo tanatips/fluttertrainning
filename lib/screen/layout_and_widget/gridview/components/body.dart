@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'myalert_dialog.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -34,17 +36,7 @@ class _BodyState extends State<Body> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: new Text(gridItem),
-          actions: <Widget>[
-            ElevatedButton(
-              child: new Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
+        return MyAlertDialog(title:gridItem);
       },
     );
   }
@@ -59,11 +51,11 @@ class _BodyState extends State<Body> {
       crossAxisCount: 2,
       children: items
           .map((data) =>
-          //  GestureDetector(
-          //     onTap: () {
-          //      getGridViewItems(context, data);
-          //     },
-              // child: 
+           GestureDetector(
+              onTap: () {
+               getGridViewItems(context, data);
+              },
+              child: 
               Container(
                   
                   margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
@@ -74,10 +66,11 @@ class _BodyState extends State<Body> {
                           textAlign: TextAlign.center)
                       )
                      )
-                    // )
+                    )
                    )
           .toList(),
     )
     );
   }
 }
+

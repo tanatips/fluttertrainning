@@ -10,17 +10,22 @@ import 'package:fluttertraining/screen/layout_and_widget/formandinput/form_and_i
 import 'package:fluttertraining/screen/layout_and_widget/futurebuilder/futurebuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/jsonrestfulworkshop/json_restful_workshop_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/login/login_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/streambuilder/streambuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screen/layout_and_widget/flex/flex_screen.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
 
 void main() {
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +38,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
@@ -48,7 +54,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -61,7 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
+@override
+  void initState() {
+    super.initState();
+    
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -90,8 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuSilverAppbar(),
         MenuButtonNavigationBar(),
         MenuTabbar(),
-        MenuNavigator()
-       
+        MenuNavigator(),
+        MenuJsonRestfull(),
+        MenuStreamBuilder(),
+        MenuLogout()
         ],
       ),
       ),
@@ -119,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+  
 }
 
 class MenuLifeCycle extends StatelessWidget {
@@ -174,13 +186,38 @@ class SpaceHeight extends StatelessWidget {
 }
 
 
-class ProfilePicture extends StatelessWidget {
+class ProfilePicture extends StatefulWidget {
   const ProfilePicture({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ProfilePicture> createState() => _ProfilePictureState();
+}
+
+class _ProfilePictureState extends State<ProfilePicture> {
+  String userName="";
+  getUserInfo() async {
+    var prefs = await SharedPreferences.getInstance();
+    String? firstName= prefs.getString('firstName');
+    String? token= prefs.getString('token');
+    String? lastName= prefs.getString('lastName');
+    print(firstName);
+    print(lastName);
+    print(token);
+    setState(() {
+      userName = firstName!;
+    });
+  }
+  @override
+  void initState() {
+    
+    super.initState();
+    getUserInfo();
+  }
+  @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       color: kPrimaryColor,
       child: DrawerHeader(
@@ -196,7 +233,10 @@ class ProfilePicture extends StatelessWidget {
                     ),
                     // backgroundColor: kPrimaryLightColor,
               )
-            ],
+              ,SizedBox(
+                height: size.height*0.02,
+              )
+            ,Text(userName)],
           )
         ,)
       ,),
@@ -433,7 +473,7 @@ class MenuNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return ListTile(
-        leading: Icon(Icons.title_sharp,color: kPrimaryColor,),
+        leading: Icon(Icons.navigate_before,color: kPrimaryColor,),
         title: Text(kNavigator,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(
@@ -444,3 +484,54 @@ class MenuNavigator extends StatelessWidget {
         );
   }
 }
+// MenuJsonRestfull
+class MenuJsonRestfull extends StatelessWidget {
+  const MenuJsonRestfull ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.format_align_justify_outlined,color: kPrimaryColor,),
+        title: Text(kJsonRestFulWorkshop,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             builder: (context){return JsonRestfullWorkShopScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuStreamBuilder extends StatelessWidget {
+  const MenuStreamBuilder ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.stream,color: kPrimaryColor,),
+        title: Text(kStreamBuilder,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             builder: (context){return StreamBuilderScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuLogout extends StatelessWidget {
+  const MenuLogout ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.logout,color: kPrimaryColor,),
+        title: Text(kLogout,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             
+             builder: (context){return LoginScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+

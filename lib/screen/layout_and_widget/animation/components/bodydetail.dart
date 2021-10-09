@@ -11,8 +11,10 @@ class BodyDetail extends StatefulWidget {
 class _BodyDetailState extends State<BodyDetail> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Hero(tag:widget.tag,child: Image.asset(widget.picture)),
+    return Center(
+      child: Container(
+        child: Hero(tag:widget.tag,child: Image.asset(widget.picture)),
+      ),
     );
   }
 }
