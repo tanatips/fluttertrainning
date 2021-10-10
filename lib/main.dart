@@ -13,16 +13,18 @@ import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_scr
 import 'package:fluttertraining/screen/layout_and_widget/jsonrestfulworkshop/json_restful_workshop_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/login/login_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/qrcode/qrcode_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/streambuilder/streambuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/youtubeplayer/youtube_player_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screen/layout_and_widget/flex/flex_screen.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
-
+import 'package:uni_links/uni_links.dart';
 void main() {
   runApp(MyApp());
   
@@ -102,6 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuNavigator(),
         MenuJsonRestfull(),
         MenuStreamBuilder(),
+        MenuYoutubePlayer(),
+        MenuQrCode(),
         MenuLogout()
         ],
       ),
@@ -529,6 +533,40 @@ class MenuLogout extends StatelessWidget {
            Navigator.push(context,MaterialPageRoute(
              
              builder: (context){return LoginScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuYoutubePlayer extends StatelessWidget {
+  const MenuYoutubePlayer ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.youtube_searched_for,color: kPrimaryColor,),
+        title: Text(kYoutubePlayer,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             
+             builder: (context){return YoutubePlayerScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuQrCode extends StatelessWidget {
+  const MenuQrCode ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.qr_code,color: kPrimaryColor,),
+        title: Text(kQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+           Navigator.push(context,MaterialPageRoute(
+             
+             builder: (context){return QrcodeScreen();}));
         },
         // trailing: Icon(Icons.more_vert),
         );

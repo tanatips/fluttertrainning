@@ -12,7 +12,8 @@ class TabbarScreeen extends StatefulWidget {
 class _TabbarScreeenState extends State<TabbarScreeen> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(length: 3,
+    return DefaultTabController(
+      length: 3,
       child: Scaffold(
         appBar: AppBar(title: Text(kTabbar),centerTitle: true,backgroundColor: kPrimaryColor,
         bottom: const TabBar(

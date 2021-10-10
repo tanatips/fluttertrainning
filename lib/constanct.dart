@@ -26,4 +26,6 @@ String kSilverAppBar = "SilverAppbar";
 String kNavigator = "Navigator";
 String kJsonRestFulWorkshop = "Json RestFul Feed Wokrshop";
 String kStreamBuilder = "StreamBuilder";
+String kYoutubePlayer = "Youtube Player";
+String kQrcode = "Scan Qrcode and Generate";
 String kLogout = "Log out";
