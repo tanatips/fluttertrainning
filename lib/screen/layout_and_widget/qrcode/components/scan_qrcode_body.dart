@@ -3,14 +3,14 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-class Body extends StatefulWidget {
-  const Body({ Key? key }) : super(key: key);
+class ScanQrcodeBody extends StatefulWidget {
+  const ScanQrcodeBody({ Key? key }) : super(key: key);
 
   @override
-  _BodyState createState() => _BodyState();
+  _ScanQrcodeBodyState createState() => _ScanQrcodeBodyState();
 }
 
-class _BodyState extends State<Body> {
+class _ScanQrcodeBodyState extends State<ScanQrcodeBody> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -28,7 +28,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
        return Scaffold(
-      body: Column(
+        body: Column(
         children: <Widget>[
           Expanded(flex: 4, child: _buildQrView(context)),
           Expanded(

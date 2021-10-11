@@ -13,21 +13,24 @@ import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_scr
 import 'package:fluttertraining/screen/layout_and_widget/jsonrestfulworkshop/json_restful_workshop_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/login/login_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
-import 'package:fluttertraining/screen/layout_and_widget/qrcode/qrcode_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/provider/provider_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/pulltorefresh/pull_to_refresh_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/qrcode/generate_qrcode_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/qrcode/scan_qrcode_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/sqlitedatabase/sqlite_database_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/streambuilder/streambuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/youtubeplayer/youtube_player_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'screen/layout_and_widget/flex/flex_screen.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
-import 'package:uni_links/uni_links.dart';
+
 void main() {
+
   runApp(MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -40,8 +43,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: LoginScreen(),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: LoginScreen(),
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
@@ -104,8 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuNavigator(),
         MenuJsonRestfull(),
         MenuStreamBuilder(),
+        MenuPullRefresh(),
         MenuYoutubePlayer(),
         MenuQrCode(),
+        MenuGenQrCode(),
+        MenuSqlite(),
+        MenuProvider(),
         MenuLogout()
         ],
       ),
@@ -521,6 +528,22 @@ class MenuStreamBuilder extends StatelessWidget {
         );
   }
 }
+class MenuPullRefresh extends StatelessWidget {
+  const MenuPullRefresh ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.refresh,color: kPrimaryColor,),
+        title: Text(kPullToRefresh,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return PullToRefreshScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
 class MenuLogout extends StatelessWidget {
   const MenuLogout ({ Key? key }) : super(key: key);
 
@@ -562,11 +585,62 @@ class MenuQrCode extends StatelessWidget {
   Widget build(BuildContext context) {
      return ListTile(
         leading: Icon(Icons.qr_code,color: kPrimaryColor,),
-        title: Text(kQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        title: Text(kScanQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
            Navigator.push(context,MaterialPageRoute(
              
-             builder: (context){return QrcodeScreen();}));
+             builder: (context){return ScanQrcodeScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuGenQrCode extends StatelessWidget {
+  const MenuGenQrCode ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.qr_code,color: kPrimaryColor,),
+        title: Text(kGenQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return GenerateQrcodeScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+class MenuSqlite extends StatelessWidget {
+  const MenuSqlite ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.square_foot_outlined,color: kPrimaryColor,),
+        title: Text(kSqliteDatabase,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return SqliteDatabaseScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+// MenuProvider
+
+class MenuProvider extends StatelessWidget {
+  const MenuProvider ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.square_foot_outlined,color: kPrimaryColor,),
+        title: Text(kProvider,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return ProviderScreen();}));
         },
         // trailing: Icon(Icons.more_vert),
         );

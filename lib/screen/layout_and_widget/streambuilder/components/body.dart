@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/controllers/photo_controller.dart';
 import 'package:fluttertraining/models/photo_model.dart';
+
+import '../streambuilder_screen.dart';
 class Body extends StatefulWidget {
   const Body({ Key? key }) : super(key: key);
 
@@ -9,12 +13,17 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  late Future<List<PhotoModel>> _postsController;
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Center(
       child: Container(
-        child: StreamBuilder<List<PhotoModel>>(
+        child: StreamBuilder(
           stream: PhotoController.getAllPhoto().asStream(),
           builder: (context, snapshot) {
             Container container = Container();
@@ -64,17 +73,18 @@ class _BodyState extends State<Body> {
                 break;
                  case ConnectionState.done:
                   container = Container(
-                  child: GridView.count(
-                                primary: false,
-                                padding: const EdgeInsets.all(20),
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                crossAxisCount: 8,
-                                children: snapshot.data!.map((data) => GestureDetector(
-                                  child: Container(
-                                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                                  color: Colors.green,
-                                  child: Center(child: Image.network(data.url.toString()), 
+                  child: 
+                  GridView.count(
+                              primary: false,
+                              padding: const EdgeInsets.all(20),
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              crossAxisCount: 8,
+                              children: (snapshot.data as List<PhotoModel>).map((data) => GestureDetector(
+                                child: Container(
+                                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                color: Colors.green,
+                                child: Center(child: Image.network(data.url.toString()), 
                               )
                             ) 
                           ) 
@@ -86,8 +96,8 @@ class _BodyState extends State<Body> {
                   // TODO: Handle this case.
                   break;
               }
-              return Center(child: container);
-                  
+              return   
+                 Center(child: container);
             }
             
           })
