@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertraining/constanct.dart';
 import 'package:fluttertraining/screen/layout_and_widget/animation/animation_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/appbarandtab/appbar_and_tab_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/blocplattern/bloc_plattern_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/buttonnavigationbar/button_navigation_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
@@ -21,6 +22,7 @@ import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbar
 import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/sqlitedatabase/sqlite_database_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/streambuilder/streambuilder_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/streambuilderyield/streambuilder_yield_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/youtubeplayer/youtube_player_screen.dart';
 import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
@@ -113,6 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuGenQrCode(),
         MenuSqlite(),
         MenuProvider(),
+        MenuBlocPattern(),
+        MenuStreamBuilderYield(),
         MenuLogout()
         ],
       ),
@@ -636,7 +640,7 @@ class MenuProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return ListTile(
-        leading: Icon(Icons.square_foot_outlined,color: kPrimaryColor,),
+        leading: Icon(Icons.privacy_tip_outlined,color: kPrimaryColor,),
         title: Text(kProvider,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
              Navigator.push(context,MaterialPageRoute(
@@ -646,4 +650,36 @@ class MenuProvider extends StatelessWidget {
         );
   }
 }
+class MenuBlocPattern extends StatelessWidget {
+  const MenuBlocPattern ({ Key? key }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.block,color: kPrimaryColor,),
+        title: Text(kBlocPattern,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return BlocPatternScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+
+class MenuStreamBuilderYield extends StatelessWidget {
+  const MenuStreamBuilderYield ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.stream_sharp,color: kPrimaryColor,),
+        title: Text(kStreamBuilderYield,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return StreamBuilderYieldScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}

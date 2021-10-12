@@ -21,13 +21,13 @@ class _BodyState extends State<Body> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              width: 200,
+              width: 100,
               height: 100,
               color: Colors.teal,
             ),
             Expanded(
               child: Container(
-                width: 100,
+                width: 200,
                 height: 100,
                 color: Colors.red,
               ),

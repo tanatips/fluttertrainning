@@ -32,4 +32,6 @@ String kScanQrcode = "Scan Qrcode";
 String kGenQrcode = "Generate Qrcode";
 String kSqliteDatabase = "Sqlite Database";
 String kProvider = "Provider";
+String kBlocPattern = "Bloc Pattern";
+String kStreamBuilderYield = "StreamBuilder Yield";
 String kLogout = "Log out";
