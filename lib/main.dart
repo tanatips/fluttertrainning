@@ -221,7 +221,9 @@ class _ProfilePictureState extends State<ProfilePicture> {
     print(lastName);
     print(token);
     setState(() {
-      userName = firstName!;
+      if(firstName!=null){
+        userName = firstName;
+      }
     });
   }
   @override
