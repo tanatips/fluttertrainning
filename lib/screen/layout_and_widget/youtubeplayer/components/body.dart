@@ -20,19 +20,11 @@ late YoutubePlayerController _controller;
   bool _isPlayerReady = false;
 
   final List<String> _ids = [
-    'nPt8bK2gbaU',
-    'gQDByCdjUXw',
-    'iLnmTe5Q2Qw',
-    '_WoCV4c6XOE',
-    'KmzdUe0RSJo',
-    '6jZDSSZZxjQ',
-    'p2lYr3vM_1w',
-    '7QUtEmBT_-w',
-    '34_PXCzGw1M',
+     'pAgnJDJN4VA',
+     '9HLNXhq3mU8'
   ];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,

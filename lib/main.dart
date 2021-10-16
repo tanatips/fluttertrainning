@@ -3,15 +3,21 @@ import 'package:fluttertraining/constanct.dart';
 import 'package:fluttertraining/screen/layout_and_widget/animation/animation_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/appbarandtab/appbar_and_tab_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/blocplattern/bloc_plattern_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/button/button_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/buttonnavigationbar/button_navigation_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/card/card_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/chip/chip_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/dialogalertpanel/dialog_alert_panel_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/divider/divider_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/expanded/expanded_screen.dart';
-import 'package:fluttertraining/screen/layout_and_widget/elevatedButton/elevatedButton_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/formandinput/form_and_input_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/futurebuilder/futurebuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/gridview/gridview_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/inputandselect/input_and_select_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/intrinsic/intrinsic_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/jsonrestfulworkshop/json_restful_workshop_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/life_cycle/life_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/linearprogressindicator/linear_progress_indicator_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/login/login_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/provider/provider_screen.dart';
@@ -21,15 +27,16 @@ import 'package:fluttertraining/screen/layout_and_widget/qrcode/scan_qrcode_scre
 import 'package:fluttertraining/screen/layout_and_widget/scrollbarable/scrollbarable_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/silverappbar/silver_app_bar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/sqlitedatabase/sqlite_database_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/stepper/stepper_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/streambuilder/streambuilder_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/streambuilderyield/streambuilder_yield_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/widgetapp/widgetapp_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/youtubeplayer/youtube_player_screen.dart';
-import 'package:fluttertraining/screen/life_cycle/life_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/layout_and_widget/flex/flex_screen.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
-
+import 'dart:developer' as dev;
 void main() {
 
   runApp(MyApp());
@@ -43,7 +50,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(backgroundColor: kPrimaryColor),
+        primaryColor: kPrimaryColor,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: kPrimaryColor)
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       // home: LoginScreen(),
@@ -69,6 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String profilePic = "assets/images/man.png";
   void _incrementCounter() {
+    dev.log(
+      "message",
+      name:"_incrementCounter",
+      error: "error _incrementCounter"
+    );
     setState(() {
       _counter++;
     });
@@ -84,7 +99,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: kPrimaryColor,
        
       ),
       drawer: Drawer(child: ListView(
@@ -95,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuExpandedScreen(),
         MenuLifeCycle(),
         MenuCardScreen(),
-        MenuElevatedButton(),
+        MenuButton(),
         MenuGridView(),
         MenuIntrinsic(),
         MenuFormInput(),
@@ -106,6 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
         MenuSilverAppbar(),
         MenuButtonNavigationBar(),
         MenuTabbar(),
+        MenuWidgetApp(),
+        MenuInputAndSelect(),
+        MenuDialogAlertPanel(),
+        MenuChip(),
+        MenuLinearProgressIndicator(),
+        MenuDivider(),
+        MenuStep(),
         MenuNavigator(),
         MenuJsonRestfull(),
         MenuStreamBuilder(),
@@ -127,9 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
            
             SpaceHeight(size: size),
-            Text(
-              'You have pushed the button this many times:',
-            ),
+              Container(
+                
+                child: Text(
+                  'You have pushed the button this many times:',
+                  style: TextStyle(fontSize: 12),
+                ),
+              ),
+            
             SpaceHeight(size: size),
             Text(
               '$_counter',
@@ -156,7 +182,7 @@ class MenuLifeCycle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.circle_rounded ,color: kPrimaryColor,),
+      leading: Icon(Icons.circle_rounded ,color: kPrimaryColor),
       title: Text(kLifeCycle,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
       onTap: (){
         Navigator.push(context,MaterialPageRoute(builder: (context){return LifeScreen();}));
@@ -314,16 +340,16 @@ class MenuCardScreen extends StatelessWidget {
 }
 
 
-class MenuElevatedButton extends StatelessWidget {
-  const MenuElevatedButton({ Key? key }) : super(key: key);
+class MenuButton extends StatelessWidget {
+  const MenuButton({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
      return ListTile(
         leading: Icon(Icons.smart_button,color: kPrimaryColor,),
-        title: Text(kElevatedButton,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        title: Text(kButton,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
         onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return ElevatedButtonScreen();}));
+           Navigator.push(context,MaterialPageRoute(builder: (context){return ButtonScreen();}));
         },
         //trailing: Icon(Icons.more_vert),
         );
@@ -680,6 +706,118 @@ class MenuStreamBuilderYield extends StatelessWidget {
         onTap: (){
              Navigator.push(context,MaterialPageRoute(
              builder: (context){return StreamBuilderYieldScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuWidgetApp extends StatelessWidget {
+  const MenuWidgetApp ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.widgets,color: kPrimaryColor,),
+        title: Text(kWidgetApp,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return WidgetAppScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuInputAndSelect extends StatelessWidget {
+  const MenuInputAndSelect ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.input,color: kPrimaryColor,),
+        title: Text(kInputAndSelect,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return InputAndSelectScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuDialogAlertPanel extends StatelessWidget {
+  const MenuDialogAlertPanel ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.message,color: kPrimaryColor,),
+        title: Text(kDialogAlertPanel,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return DialogAlertPanelScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuChip extends StatelessWidget {
+  const MenuChip ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.chair_sharp,color: kPrimaryColor,),
+        title: Text(kChip,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return ChipScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuLinearProgressIndicator extends StatelessWidget {
+  const MenuLinearProgressIndicator ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.circle,color: kPrimaryColor,),
+        title: Text(kLinearProgressIndicator,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return LinearProgressIndicatorScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuDivider extends StatelessWidget {
+  const MenuDivider ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.safety_divider,color: kPrimaryColor,),
+        title: Text(kDivider,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return DividerScreen();}));
+        },
+        // trailing: Icon(Icons.more_vert),
+        );
+  }
+}
+class MenuStep extends StatelessWidget {
+  const MenuStep ({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return ListTile(
+        leading: Icon(Icons.set_meal,color: kPrimaryColor,),
+        title: Text(kStepper,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
+        onTap: (){
+             Navigator.push(context,MaterialPageRoute(
+             builder: (context){return StepperScreen();}));
         },
         // trailing: Icon(Icons.more_vert),
         );

@@ -39,15 +39,19 @@ class _BodyState extends State<Body> {
     loadData();
   }
   loadData() async{
-    for(var i=1;i<=2;i++){
-      var fido = Dog(
-        id: i,
-        name: 'Fido-'+i.toString(),
-        age: 2+i,
-      );
-      await insertDog(fido);
-    }
     List<Dog> myDog = await dogs();
+    if(myDog.length==0){
+      for(var i=1;i<=2;i++){
+        var fido = Dog(
+          id: i,
+          name: 'Fido-'+i.toString(),
+          age: 2+i,
+        );
+        await insertDog(fido);
+      }
+    }
+    myDog = await dogs();
+    
     myDog.forEach((element) {
       print("${element.id} ${element.name} ${element.age}");
     });
