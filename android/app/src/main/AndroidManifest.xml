@@ -2,7 +2,7 @@
     package="com.example.fluttertraining">
 
    <application
-        android:label="fluttertraining"
+        android:label="อบรม flutter"
         android:icon="@mipmap/ic_launcher">
 
         <activity
