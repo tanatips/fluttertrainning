@@ -9,7 +9,9 @@ double kSecodFontSize = 12;
 
 String kLifeCycle = "Life Cycle";
 String kStack = "Stack";
+String kImages = "Images";
 String kFlex = "Flex";
+String kRowsColumns = "Rows and Columns";
 String kExpanded = "Expanded";
 String kCard = "Card";
 String kButton = "Button";
