@@ -8,6 +8,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  String dialogData ="";
   String selected = "";
   List<bool> lstExpan = [false, false,false,false];
   var _selectedFromDialog = "";
@@ -20,8 +21,6 @@ class _BodyState extends State<Body> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         
-         
           ExpansionPanelList(
             animationDuration: Duration(milliseconds: 1000),
             dividerColor: Colors.red,
@@ -47,8 +46,8 @@ class _BodyState extends State<Body> {
                   body: Column(
                     children: [
                       ElevatedButton(
-                          onPressed: () {
-                            showDialog<String>(
+                          onPressed: () async {
+                           dialogData = (await showDialog<String>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
                                       title: const Text('AlertDialog Title'),
@@ -66,9 +65,13 @@ class _BodyState extends State<Body> {
                                           child: const Text('OK'),
                                         ),
                                       ],
-                                    ));
+                                    )))!;
+                                    setState(() {
+                                      
+                                    });
                           },
-                          child: Text("Dialog"))
+                          child: Text("Dialog")),
+                          Text(dialogData)
                     ],
                   )),
               ExpansionPanel(
@@ -118,8 +121,9 @@ class _BodyState extends State<Body> {
                           child: Text("Botton Sheet")),
                       Text(selected),
                     ],
-                  ))
-            , ExpansionPanel(
+                  )
+              ),
+              ExpansionPanel(
                   isExpanded: lstExpan[2],
                   headerBuilder: (BuildContext context, bool isExpan) {
                     return Container(
@@ -138,9 +142,8 @@ class _BodyState extends State<Body> {
                         child: Text("Simple dialog")),
                          Text(_selectedFromDialog)
                     ],
-                  ))
-                    , 
-                  ExpansionPanel(
+                  )), 
+              ExpansionPanel(
                   isExpanded: lstExpan[3],
                   headerBuilder: (BuildContext context, bool isExpan) {
                     return Container(
@@ -216,7 +219,7 @@ class _BodyState extends State<Body> {
     );
 
     setState(() {
-      _selectedFromDialog = _selectedFromDialog;
+      // _selectedFromDialog = _selectedFromDialog;
     });
   }
 }

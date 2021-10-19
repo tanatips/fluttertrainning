@@ -44,20 +44,12 @@ class _BodyState extends State<Body> {
             ElevatedButton(
               child: const Text('Navigator.pushNamedAndRemoveUntil'),
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/scrollbar',ModalRoute.withName('/navigator'));
+                Navigator.pushNamedAndRemoveUntil(context, '/scrollbar',
+                (Route<dynamic> route) => false
+                // ModalRoute.withName('/navigator')
+                );
               },
             ),
-            // ElevatedButton(
-            //   child: const Text('Navigator.popUntil'),
-            //   onPressed: () {
-            //     // Navigator.popUntil(context,ModalRoute.withName('/scrollbar'));
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => const ThreeRoute()),
-            //     );
-            //   },
-            // ),
-            
           ],
         )
     );

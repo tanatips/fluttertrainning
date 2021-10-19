@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: kPrimaryColor)
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-      // home: LoginScreen(),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.

@@ -113,9 +113,11 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return new WidgetsApp(
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: generate,
         onUnknownRoute: unKnownRoute,
-        textStyle: const TextStyle(),
+        textStyle: const TextStyle(fontSize: 20),
+        
         initialRoute: "/",
         color: Colors.red
     );

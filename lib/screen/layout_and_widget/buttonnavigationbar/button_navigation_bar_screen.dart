@@ -31,6 +31,7 @@ class _ButtonNavigationBarScreenState extends State<ButtonNavigationBarScreen> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      print(_selectedIndex);
     });
   }
   @override

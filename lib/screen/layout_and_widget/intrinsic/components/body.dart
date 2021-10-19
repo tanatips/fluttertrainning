@@ -12,29 +12,32 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return  
-    IntrinsicWidth(
-      child: 
-      Container(
-        // width: size.width,
-        color: Colors.blue,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.teal,
-            ),
-            Expanded(
-              child: Container(
-                width: 200,
+    // IntrinsicHeight(
+    //   child: IntrinsicWidth(
+    //     child: 
+        Container(
+          color: Colors.blue,
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                width: 150,
                 height: 100,
-                color: Colors.red,
+                color: Colors.teal,
               ),
-            ),
-          ],
-        ),
-      ),
+              // Expanded(
+              //   child: 
+                Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                ),
+            //  ),
+            ],
+          ),
+      //   ),
+      // ),
     );
   }
 }

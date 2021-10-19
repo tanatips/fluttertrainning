@@ -66,6 +66,7 @@ class _BodyState extends State<Body> {
               onChanged: (SingingCharacter? value) {
                 setState(() {
                   _character = value;
+                  print(_character);
                 });
               },
             ),
@@ -78,6 +79,7 @@ class _BodyState extends State<Body> {
               onChanged: (SingingCharacter? value) {
                 setState(() {
                   _character = value;
+                   print(_character);
                 });
               },
             ),
@@ -92,6 +94,7 @@ class _BodyState extends State<Body> {
               onChanged: (double value) {
                 setState(() {
                   _currentSliderValue = value;
+                  print(_currentSliderValue);
                 });
               },
             ),
@@ -106,12 +109,13 @@ class _BodyState extends State<Body> {
             Container(
               decoration:  BoxDecoration(
                 border: Border.all(color:Colors.grey),
-                borderRadius: BorderRadius.circular(25)),
+                borderRadius: BorderRadius.circular(25)
+                ),
               width: size.width*0.8,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
+                padding: const EdgeInsets.only(left: 20,right: 20,top: 2,bottom: 2),
                 child: TextFormField(
-                  decoration: InputDecoration(border: InputBorder.none),
+                 decoration: InputDecoration(border: InputBorder.none),
                 ),
               ),
             )

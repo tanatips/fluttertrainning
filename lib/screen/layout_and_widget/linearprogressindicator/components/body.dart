@@ -13,7 +13,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin  {
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 10),
     )..addListener(() {
         setState(() {});
       });

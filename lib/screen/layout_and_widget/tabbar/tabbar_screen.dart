@@ -26,7 +26,6 @@ class _TabbarScreeenState extends State<TabbarScreeen> {
       ),
         body: Body()
       )
-      
     );
   }
 }
