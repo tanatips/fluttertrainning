@@ -21,7 +21,9 @@ import 'package:fluttertraining/screen/layout_and_widget/life_cycle/life_screen.
 import 'package:fluttertraining/screen/layout_and_widget/linearprogressindicator/linear_progress_indicator_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/login/login_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/navigator/navigator_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/provider/components/second_body.dart';
 import 'package:fluttertraining/screen/layout_and_widget/provider/provider_screen.dart';
+import 'package:fluttertraining/screen/layout_and_widget/provider/second_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/pulltorefresh/pull_to_refresh_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/qrcode/generate_qrcode_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/qrcode/scan_qrcode_screen.dart';
@@ -35,13 +37,23 @@ import 'package:fluttertraining/screen/layout_and_widget/streambuilderyield/stre
 import 'package:fluttertraining/screen/layout_and_widget/tabbar/tabbar_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/widgetapp/widgetapp_screen.dart';
 import 'package:fluttertraining/screen/layout_and_widget/youtubeplayer/youtube_player_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/layout_and_widget/flex/flex_screen.dart';
+import 'screen/layout_and_widget/provider/components/counter.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
 import 'dart:developer' as dev;
 void main() {
 
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Counter()),
+        // ChangeNotifierProvider(create: (_) => ShoppingCart()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -65,6 +77,7 @@ class MyApp extends StatelessWidget {
         '/navigator': (context) => const NavigatorScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/scrollbar': (context) => const ScrollbarableScreen(),
+        '/second': (context) => const SecondScreen(),
       },
     );
   }
