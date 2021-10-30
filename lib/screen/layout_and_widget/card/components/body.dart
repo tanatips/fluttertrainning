@@ -38,9 +38,11 @@ class MyCard extends StatelessWidget {
       height: size.height*0.2,
       child: Card(
         
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Test card"),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Test card"),
+          ),
         ),
       ),
     );

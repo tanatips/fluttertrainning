@@ -22,7 +22,7 @@ class _BodyState extends State<Body> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ExpansionPanelList(
-            animationDuration: Duration(milliseconds: 1000),
+            animationDuration: Duration(milliseconds: 500),
             dividerColor: Colors.red,
             elevation: 1,
             expansionCallback: (int item, bool status) {
@@ -219,7 +219,7 @@ class _BodyState extends State<Body> {
     );
 
     setState(() {
-      // _selectedFromDialog = _selectedFromDialog;
+     
     });
   }
 }

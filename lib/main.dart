@@ -43,8 +43,8 @@ import 'screen/layout_and_widget/flex/flex_screen.dart';
 import 'screen/layout_and_widget/provider/components/counter.dart';
 import 'screen/layout_and_widget/stack/stack_screen.dart';
 import 'dart:developer' as dev;
-void main() {
 
+void main() {
   runApp(
     MultiProvider(
       providers: [
@@ -64,13 +64,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // brightness: Brightness.dark,
-        appBarTheme: AppBarTheme(backgroundColor: kPrimaryColor),
-        primaryColor: kPrimaryColor,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: kPrimaryColor)
-      ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: LoginScreen(),
+          // brightness: Brightness.dark,
+          appBarTheme: AppBarTheme(backgroundColor: kPrimaryColor),
+          primaryColor: kPrimaryColor,
+          floatingActionButtonTheme:
+              FloatingActionButtonThemeData(backgroundColor: kPrimaryColor)),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: LoginScreen(),
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
@@ -94,87 +94,80 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String profilePic = "assets/images/man.png";
   void _incrementCounter() {
-    dev.log(
-      "message",
-      name:"_incrementCounter",
-      error: "error _incrementCounter"
-    );
+    dev.log("message",
+        name: "_incrementCounter", error: "error _incrementCounter");
     setState(() {
       _counter++;
     });
   }
-@override
+
+  @override
   void initState() {
     super.initState();
-    
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-       
       ),
-      drawer: Drawer(child: ListView(
-        children: [
-        ProfilePicture(),
-        MenuImages(),
-        MenuButton(),
-        MenuFormInput(),
-        MenuCardScreen(),
-        MenuRowsColumns(),
-        MenuFlexScreen(),
-        MenuStackScreen(),
-        MenuExpandedScreen(),
-        MenuLifeCycle(),
-       
-        MenuGridView(),
-        MenuIntrinsic(),
-   
-        MenuFutureBuilder(),
-        MenuAnimation(),
-        MenuScrollbarable(),
-        MenuAppbarAndTab(),
-        MenuSilverAppbar(),
-        MenuButtonNavigationBar(),
-        MenuTabbar(),
-        MenuWidgetApp(),
-        MenuInputAndSelect(),
-        MenuDialogAlertPanel(),
-        MenuChip(),
-        MenuLinearProgressIndicator(),
-        MenuDivider(),
-        MenuStep(),
-        MenuNavigator(),
-        MenuJsonRestfull(),
-        MenuStreamBuilder(),
-        MenuPullRefresh(),
-        MenuYoutubePlayer(),
-        MenuQrCode(),
-        MenuGenQrCode(),
-        MenuSqlite(),
-        MenuProvider(),
-        MenuBlocPattern(),
-        MenuStreamBuilderYield(),
-        MenuLogout()
-        ],
-      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ProfilePicture(),
+            MenuImages(),
+            MenuButton(),
+            MenuFormInput(),
+            MenuCardScreen(),
+            MenuRowsColumns(),
+            MenuFlexScreen(),
+            MenuStackScreen(),
+            MenuExpandedScreen(),
+            MenuLifeCycle(),
+            MenuGridView(),
+            MenuIntrinsic(),
+            MenuFutureBuilder(),
+            MenuAnimation(),
+            MenuScrollbarable(),
+            MenuAppbarAndTab(),
+            MenuSilverAppbar(),
+            MenuButtonNavigationBar(),
+            MenuTabbar(),
+            MenuWidgetApp(),
+            MenuInputAndSelect(),
+            MenuDialogAlertPanel(),
+            MenuChip(),
+            MenuLinearProgressIndicator(),
+            MenuDivider(),
+            MenuStep(),
+            MenuNavigator(),
+            MenuJsonRestfull(),
+            MenuStreamBuilder(),
+            MenuPullRefresh(),
+            MenuYoutubePlayer(),
+            MenuQrCode(),
+            MenuGenQrCode(),
+            MenuSqlite(),
+            MenuProvider(),
+            MenuBlocPattern(),
+            MenuStreamBuilderYield(),
+            MenuLogout()
+          ],
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-           
             SpaceHeight(size: size),
-              Container(
-                
-                child: Text(
-                  'You have pushed the button this many times:',
-                  style: TextStyle(fontSize: 12),
-                ),
+            Container(
+              child: Text(
+                'You have pushed the button this many times:',
+                style: TextStyle(fontSize: 12),
               ),
-            
+            ),
             SpaceHeight(size: size),
             Text(
               '$_counter',
@@ -190,7 +183,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-  
 }
 
 class MenuLifeCycle extends StatelessWidget {
@@ -201,13 +193,16 @@ class MenuLifeCycle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.circle_rounded ,color: kPrimaryColor),
-      title: Text(kLifeCycle,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-      onTap: (){
-        Navigator.push(context,MaterialPageRoute(builder: (context){return LifeScreen();}));
+      leading: Icon(Icons.circle_rounded, color: kPrimaryColor),
+      title: Text(kLifeCycle,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return LifeScreen();
+        }));
       },
       //trailing: Icon(Icons.more_vert),
-      );
+    );
   }
 }
 
@@ -219,12 +214,18 @@ class MenuExpandedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-    leading: Icon(Icons.expand_outlined ,color: kPrimaryColor,),
-    title: Text(kExpanded,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-    onTap: (){
-       Navigator.push(context,MaterialPageRoute(builder: (context){return ExpandedScreen();}));
-    },
-    //trailing: Icon(Icons.more_vert),
+      leading: Icon(
+        Icons.expand_outlined,
+        color: kPrimaryColor,
+      ),
+      title: Text(kExpanded,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ExpandedScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
     );
   }
 }
@@ -239,12 +240,9 @@ class SpaceHeight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: size.height*0.02
-    );
+    return SizedBox(height: size.height * 0.02);
   }
 }
-
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({
@@ -256,52 +254,57 @@ class ProfilePicture extends StatefulWidget {
 }
 
 class _ProfilePictureState extends State<ProfilePicture> {
-  String userName="";
+  String userName = "";
   getUserInfo() async {
     var prefs = await SharedPreferences.getInstance();
-    String? firstName= prefs.getString('firstName');
-    String? token= prefs.getString('token');
-    String? lastName= prefs.getString('lastName');
+    String? firstName = prefs.getString('firstName');
+    String? token = prefs.getString('token');
+    String? lastName = prefs.getString('lastName');
     print(firstName);
     print(lastName);
     print(token);
     setState(() {
-      if(firstName!=null){
+      if (firstName != null) {
         userName = firstName;
       }
     });
   }
+
   @override
   void initState() {
-    
     super.initState();
     getUserInfo();
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       color: kPrimaryColor,
       child: DrawerHeader(
-        child: Align(alignment: Alignment.center,
-        child: Column(children: [
-          CircleAvatar(
-            radius: 50.0,
-            backgroundColor: Colors.white,
-                   
-                    child: CircleAvatar(radius: 45,
-                    backgroundColor: kSecondColor,
-                    backgroundImage: AssetImage("assets/images/man.png"),
-                    ),
-                    // backgroundColor: kPrimaryLightColor,
-              )
-              ,SizedBox(
-                height: size.height*0.02,
-              )
-            ,Text(userName)],
-          )
-        ,)
-      ,),
+        child: Align(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              CircleAvatar(
+                radius: 50.0,
+                backgroundColor: Colors.white,
+
+                child: CircleAvatar(
+                  radius: 45,
+                  backgroundColor: kSecondColor,
+                  backgroundImage: AssetImage("assets/images/man.png"),
+                ),
+                // backgroundColor: kPrimaryLightColor,
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
+              Text(userName)
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -314,13 +317,19 @@ class MenuStackScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        leading: Icon(Icons.stacked_bar_chart,color: kPrimaryColor,),
-        title: Text(kStack,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return StackScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+      leading: Icon(
+        Icons.stacked_bar_chart,
+        color: kPrimaryColor,
+      ),
+      title: Text(kStack,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StackScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
@@ -332,13 +341,19 @@ class MenuFlexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        leading: Icon(Icons.flare ,color: kPrimaryColor,),
-        title: Text(kFlex,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return FlexScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+      leading: Icon(
+        Icons.flare,
+        color: kPrimaryColor,
+      ),
+      title: Text(kFlex,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return FlexScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
@@ -350,529 +365,730 @@ class MenuImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        leading: Icon(Icons.image ,color: kPrimaryColor,),
-        title: Text(kImages,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return ImagesScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+      leading: Icon(
+        Icons.image,
+        color: kPrimaryColor,
+      ),
+      title: Text(kImages,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ImagesScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
 class MenuCardScreen extends StatelessWidget {
-  const MenuCardScreen({ Key? key }) : super(key: key);
+  const MenuCardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.card_giftcard,color: kPrimaryColor,),
-        title: Text(kCard,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return CardScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.card_giftcard,
+        color: kPrimaryColor,
+      ),
+      title: Text(kCard,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CardScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
-
 
 class MenuButton extends StatelessWidget {
-  const MenuButton({ Key? key }) : super(key: key);
+  const MenuButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.smart_button,color: kPrimaryColor,),
-        title: Text(kButton,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return ButtonScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.smart_button,
+        color: kPrimaryColor,
+      ),
+      title: Text(kButton,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ButtonScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 // MenuGridView
 class MenuGridView extends StatelessWidget {
-  const MenuGridView({ Key? key }) : super(key: key);
+  const MenuGridView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.grid_3x3,color: kPrimaryColor,),
-        title: Text(kGridView,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return GridViewScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.grid_3x3,
+        color: kPrimaryColor,
+      ),
+      title: Text(kGridView,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return GridViewScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
 class MenuIntrinsic extends StatelessWidget {
-  const MenuIntrinsic({ Key? key }) : super(key: key);
+  const MenuIntrinsic({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.rounded_corner,color: kPrimaryColor,),
-        title: Text(kIntrinsic,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return IntrinsicScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.rounded_corner,
+        color: kPrimaryColor,
+      ),
+      title: Text(kIntrinsic,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return IntrinsicScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 // MenuFormInput
 class MenuFormInput extends StatelessWidget {
-  const MenuFormInput({ Key? key }) : super(key: key);
+  const MenuFormInput({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.input,color: kPrimaryColor,),
-        title: Text(kFormAndInput,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return FormAndInputScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.input,
+        color: kPrimaryColor,
+      ),
+      title: Text(kFormAndInput,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return FormAndInputScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuFutureBuilder extends StatelessWidget {
-  const MenuFutureBuilder ({ Key? key }) : super(key: key);
+  const MenuFutureBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.build,color: kPrimaryColor,),
-        title: Text(kFutureBuilder,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return FutureBuilderScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.build,
+        color: kPrimaryColor,
+      ),
+      title: Text(kFutureBuilder,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return FutureBuilderScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuAnimation extends StatelessWidget {
-  const MenuAnimation ({ Key? key }) : super(key: key);
+  const MenuAnimation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.animation,color: kPrimaryColor,),
-        title: Text(kAnimation,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return AnimationScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.animation,
+        color: kPrimaryColor,
+      ),
+      title: Text(kAnimation,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AnimationScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuScrollbarable extends StatelessWidget {
-  const MenuScrollbarable ({ Key? key }) : super(key: key);
+  const MenuScrollbarable({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.fit_screen_outlined,color: kPrimaryColor,),
-        title: Text(kScrolbarable,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return ScrollbarableScreen();}));
-        },
-        //trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.fit_screen_outlined,
+        color: kPrimaryColor,
+      ),
+      title: Text(kScrolbarable,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ScrollbarableScreen();
+        }));
+      },
+      //trailing: Icon(Icons.more_vert),
+    );
   }
 }
- 
+
 class MenuAppbarAndTab extends StatelessWidget {
-  const MenuAppbarAndTab ({ Key? key }) : super(key: key);
+  const MenuAppbarAndTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.menu,color: kPrimaryColor,),
-        title: Text(kAppbarAndTab,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return AppbarAndTabScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.menu,
+        color: kPrimaryColor,
+      ),
+      title: Text(kAppbarAndTab,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AppbarAndTabScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuButtonNavigationBar extends StatelessWidget {
-  const MenuButtonNavigationBar ({ Key? key }) : super(key: key);
+  const MenuButtonNavigationBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.menu,color: kPrimaryColor,),
-        title: Text(kButtonNavigationBar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return ButtonNavigationBarScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.menu,
+        color: kPrimaryColor,
+      ),
+      title: Text(kButtonNavigationBar,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ButtonNavigationBarScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuTabbar extends StatelessWidget {
-  const MenuTabbar ({ Key? key }) : super(key: key);
+  const MenuTabbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.tab,color: kPrimaryColor,),
-        title: Text(kTabbar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return TabbarScreeen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.tab,
+        color: kPrimaryColor,
+      ),
+      title: Text(kTabbar,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return TabbarScreeen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuSilverAppbar extends StatelessWidget {
-  const MenuSilverAppbar ({ Key? key }) : super(key: key);
+  const MenuSilverAppbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.title_sharp,color: kPrimaryColor,),
-        title: Text(kSilverAppBar,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context){return SilverAppbarScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.title_sharp,
+        color: kPrimaryColor,
+      ),
+      title: Text(kSilverAppBar,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return SilverAppbarScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
 class MenuNavigator extends StatelessWidget {
-  const MenuNavigator ({ Key? key }) : super(key: key);
+  const MenuNavigator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.navigate_before,color: kPrimaryColor,),
-        title: Text(kNavigator,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             settings: RouteSettings(name: "/navigator"),
-             builder: (context){return NavigatorScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.navigate_before,
+        color: kPrimaryColor,
+      ),
+      title: Text(kNavigator,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                settings: RouteSettings(name: "/navigator"),
+                builder: (context) {
+                  return NavigatorScreen();
+                }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 // MenuJsonRestfull
 class MenuJsonRestfull extends StatelessWidget {
-  const MenuJsonRestfull ({ Key? key }) : super(key: key);
+  const MenuJsonRestfull({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.format_align_justify_outlined,color: kPrimaryColor,),
-        title: Text(kJsonRestFulWorkshop,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             builder: (context){return JsonRestfullWorkShopScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.format_align_justify_outlined,
+        color: kPrimaryColor,
+      ),
+      title: Text(kJsonRestFulWorkshop,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return JsonRestfullWorkShopScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuStreamBuilder extends StatelessWidget {
-  const MenuStreamBuilder ({ Key? key }) : super(key: key);
+  const MenuStreamBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.stream,color: kPrimaryColor,),
-        title: Text(kStreamBuilder,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             builder: (context){return StreamBuilderScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.stream,
+        color: kPrimaryColor,
+      ),
+      title: Text(kStreamBuilder,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StreamBuilderScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuPullRefresh extends StatelessWidget {
-  const MenuPullRefresh ({ Key? key }) : super(key: key);
+  const MenuPullRefresh({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.refresh,color: kPrimaryColor,),
-        title: Text(kPullToRefresh,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return PullToRefreshScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.refresh,
+        color: kPrimaryColor,
+      ),
+      title: Text(kPullToRefresh,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return PullToRefreshScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuLogout extends StatelessWidget {
-  const MenuLogout ({ Key? key }) : super(key: key);
+  const MenuLogout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.logout,color: kPrimaryColor,),
-        title: Text(kLogout,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             
-             builder: (context){return LoginScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.logout,
+        color: kPrimaryColor,
+      ),
+      title: Text(kLogout,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return LoginScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuYoutubePlayer extends StatelessWidget {
-  const MenuYoutubePlayer ({ Key? key }) : super(key: key);
+  const MenuYoutubePlayer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.youtube_searched_for,color: kPrimaryColor,),
-        title: Text(kYoutubePlayer,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             
-             builder: (context){return YoutubePlayerScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.youtube_searched_for,
+        color: kPrimaryColor,
+      ),
+      title: Text(kYoutubePlayer,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return YoutubePlayerScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuQrCode extends StatelessWidget {
-  const MenuQrCode ({ Key? key }) : super(key: key);
+  const MenuQrCode({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.qr_code,color: kPrimaryColor,),
-        title: Text(kScanQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-           Navigator.push(context,MaterialPageRoute(
-             
-             builder: (context){return ScanQrcodeScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.qr_code,
+        color: kPrimaryColor,
+      ),
+      title: Text(kScanQrcode,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ScanQrcodeScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuGenQrCode extends StatelessWidget {
-  const MenuGenQrCode ({ Key? key }) : super(key: key);
+  const MenuGenQrCode({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.qr_code,color: kPrimaryColor,),
-        title: Text(kGenQrcode,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return GenerateQrcodeScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.qr_code,
+        color: kPrimaryColor,
+      ),
+      title: Text(kGenQrcode,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return GenerateQrcodeScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
 class MenuSqlite extends StatelessWidget {
-  const MenuSqlite ({ Key? key }) : super(key: key);
+  const MenuSqlite({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.square_foot_outlined,color: kPrimaryColor,),
-        title: Text(kSqliteDatabase,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return SqliteDatabaseScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.square_foot_outlined,
+        color: kPrimaryColor,
+      ),
+      title: Text(kSqliteDatabase,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return SqliteDatabaseScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
 // MenuProvider
 
 class MenuProvider extends StatelessWidget {
-  const MenuProvider ({ Key? key }) : super(key: key);
+  const MenuProvider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.privacy_tip_outlined,color: kPrimaryColor,),
-        title: Text(kProvider,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return ProviderScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.privacy_tip_outlined,
+        color: kPrimaryColor,
+      ),
+      title: Text(kProvider,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ProviderScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuBlocPattern extends StatelessWidget {
-  const MenuBlocPattern ({ Key? key }) : super(key: key);
+  const MenuBlocPattern({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.block,color: kPrimaryColor,),
-        title: Text(kBlocPattern,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return BlocPatternScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.block,
+        color: kPrimaryColor,
+      ),
+      title: Text(kBlocPattern,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return BlocPatternScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
 
 class MenuStreamBuilderYield extends StatelessWidget {
-  const MenuStreamBuilderYield ({ Key? key }) : super(key: key);
+  const MenuStreamBuilderYield({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.stream_sharp,color: kPrimaryColor,),
-        title: Text(kStreamBuilderYield,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return StreamBuilderYieldScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.stream_sharp,
+        color: kPrimaryColor,
+      ),
+      title: Text(kStreamBuilderYield,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StreamBuilderYieldScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuWidgetApp extends StatelessWidget {
-  const MenuWidgetApp ({ Key? key }) : super(key: key);
+  const MenuWidgetApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.widgets,color: kPrimaryColor,),
-        title: Text(kWidgetApp,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return WidgetAppScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.widgets,
+        color: kPrimaryColor,
+      ),
+      title: Text(kWidgetApp,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return WidgetAppScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuInputAndSelect extends StatelessWidget {
-  const MenuInputAndSelect ({ Key? key }) : super(key: key);
+  const MenuInputAndSelect({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.input,color: kPrimaryColor,),
-        title: Text(kInputAndSelect,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return InputAndSelectScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.input,
+        color: kPrimaryColor,
+      ),
+      title: Text(kInputAndSelect,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return InputAndSelectScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuDialogAlertPanel extends StatelessWidget {
-  const MenuDialogAlertPanel ({ Key? key }) : super(key: key);
+  const MenuDialogAlertPanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.message,color: kPrimaryColor,),
-        title: Text(kDialogAlertPanel,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return DialogAlertPanelScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.message,
+        color: kPrimaryColor,
+      ),
+      title: Text(kDialogAlertPanel,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return DialogAlertPanelScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuChip extends StatelessWidget {
-  const MenuChip ({ Key? key }) : super(key: key);
+  const MenuChip({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.chair_sharp,color: kPrimaryColor,),
-        title: Text(kChip,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return ChipScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.chair_sharp,
+        color: kPrimaryColor,
+      ),
+      title: Text(kChip,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChipScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuLinearProgressIndicator extends StatelessWidget {
-  const MenuLinearProgressIndicator ({ Key? key }) : super(key: key);
+  const MenuLinearProgressIndicator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.circle,color: kPrimaryColor,),
-        title: Text(kLinearProgressIndicator,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return LinearProgressIndicatorScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.circle,
+        color: kPrimaryColor,
+      ),
+      title: Text(kLinearProgressIndicator,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return LinearProgressIndicatorScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuDivider extends StatelessWidget {
-  const MenuDivider ({ Key? key }) : super(key: key);
+  const MenuDivider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.safety_divider,color: kPrimaryColor,),
-        title: Text(kDivider,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return DividerScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.safety_divider,
+        color: kPrimaryColor,
+      ),
+      title: Text(kDivider,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return DividerScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuStep extends StatelessWidget {
-  const MenuStep ({ Key? key }) : super(key: key);
+  const MenuStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.set_meal,color: kPrimaryColor,),
-        title: Text(kStepper,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return StepperScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.set_meal,
+        color: kPrimaryColor,
+      ),
+      title: Text(kStepper,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StepperScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }
+
 class MenuRowsColumns extends StatelessWidget {
-  const MenuRowsColumns ({ Key? key }) : super(key: key);
+  const MenuRowsColumns({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return ListTile(
-        leading: Icon(Icons.rowing_sharp,color: kPrimaryColor,),
-        title: Text(kRowsColumns,style:TextStyle(fontSize: kPrimaryFontSize,wordSpacing: 1)),
-        onTap: (){
-             Navigator.push(context,MaterialPageRoute(
-             builder: (context){return RowsColumnsScreen();}));
-        },
-        // trailing: Icon(Icons.more_vert),
-        );
+    return ListTile(
+      leading: Icon(
+        Icons.rowing_sharp,
+        color: kPrimaryColor,
+      ),
+      title: Text(kRowsColumns,
+          style: TextStyle(fontSize: kPrimaryFontSize, wordSpacing: 1)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return RowsColumnsScreen();
+        }));
+      },
+      // trailing: Icon(Icons.more_vert),
+    );
   }
 }

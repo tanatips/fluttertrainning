@@ -20,8 +20,10 @@ class _BodyState extends State<Body> {
               return new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text("Home Page",textDirection: TextDirection.ltr,),
+                  SizedBox(height: 100,),
+                  
                   const Padding(padding: const EdgeInsets.all(10.0)),
+                  
                   new GestureDetector(
                     onTap: () => Navigator.of(context).pushNamed("/first"),
                     child: new Container(
