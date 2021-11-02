@@ -117,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: [
             ProfilePicture(),
+            MenuLifeCycle(),
             MenuImages(),
             MenuButton(),
             MenuFormInput(),
@@ -125,7 +126,6 @@ class _MyHomePageState extends State<MyHomePage> {
             MenuFlexScreen(),
             MenuStackScreen(),
             MenuExpandedScreen(),
-            MenuLifeCycle(),
             MenuGridView(),
             MenuIntrinsic(),
             MenuFutureBuilder(),
